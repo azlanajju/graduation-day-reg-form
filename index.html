@@ -9,6 +9,10 @@
 </head>
 
 <body>
+  <div  id="loader" class="loading_bg">
+    <div class="loader"></div>
+
+  </div>
   <div class="logo">
     <img src="./pace-logo.png" alt="">
   </div>
@@ -97,18 +101,30 @@
 
   </script>
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbx4qvHgl3PmlD_xmdPGV-RJvwz9HZq2Q__mF418FubYJ9L_IMpoa9TptoH_SjYJy1clEA/exec';
-    const form = document.forms['contact-form'];
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx4qvHgl3PmlD_xmdPGV-RJvwz9HZq2Q__mF418FubYJ9L_IMpoa9TptoH_SjYJy1clEA/exec';
+const form = document.forms['contact-form'];
+const loader = document.getElementById('loader'); 
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-          alert("Thank you! Your form is submitted successfully.");
-          window.location.reload();
-        })
-        .catch(error => console.error('Error!', error.message));
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  
+  
+  loader.style.display = 'flex';
+
+  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+    .then(response => {
+      
+      loader.style.display = 'none';
+      alert("Thank you! Your form is submitted successfully.");
+      window.location.reload();
+    })
+    .catch(error => {
+      // Hide the loader in case of an error
+      loader.style.display = 'none';
+      console.error('Error!', error.message);
     });
+});
+
   </script>
   <style>
 footer {
