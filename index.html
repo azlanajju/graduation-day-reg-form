@@ -62,11 +62,13 @@
     <label for="vegCount">Number of Veg & Non-veg:</label>
     <div class="food_row">
       <div>
-        <input placeholder="Veg" type="number" id="vegCount" name="VegCount" min="0" max="4" disabled>
+        <p class="numberFields" id="vegCoutField">0</p>
+        <input placeholder="Veg" type="hidden" id="vegCount" name="VegCount" min="0" max="4" >
         <button id="vegBtn" type="button" onclick="incrVeg()">+ Veg</button>
       </div>
       <div>
-        <input placeholder="Non-Veg" type="number" id="nonVegCount" name="NonVegCount" min="0" max="5" disabled>
+        <p class="numberFields" id="nonVegCoutField">0</p>
+        <input placeholder="Non-Veg" type="hidden" id="nonVegCount" name="NonVegCount" min="0" max="5" >
         <button type="button" id="nonVegBtn" onclick="incrNonVeg()">+ Non-Veg</button>
       </div>
     </div>
@@ -89,6 +91,8 @@
 
     </label>
   </form>
+
+  
   <script src="./main.js">
 
   </script>
@@ -96,9 +100,6 @@
     const scriptURL = 'https://script.google.com/macros/s/AKfycbx4qvHgl3PmlD_xmdPGV-RJvwz9HZq2Q__mF418FubYJ9L_IMpoa9TptoH_SjYJy1clEA/exec';
     const form = document.forms['contact-form'];
 
-
-
-    // Handle form submission
     form.addEventListener('submit', e => {
       e.preventDefault();
       fetch(scriptURL, { method: 'POST', body: new FormData(form) })
@@ -109,6 +110,48 @@
         .catch(error => console.error('Error!', error.message));
     });
   </script>
+  <style>
+footer {
+  background-color: #f2f2f2;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-developer p {
+  color: #666;
+}
+
+.footer-bottom p {
+  color: #888;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+/* Media Query for Responsive Footer */
+@media screen and (max-width: 600px) {
+
+
+  .footer-developer p {
+    font-size: 12px;
+  }
+  .footer-bottom p {
+    font-size: 11px;
+  }
+}
+  </style>
+  <footer>
+
+
+    <div class="footer-bottom">
+        <p>Developed by: Azlan | Rifaz</p>
+
+      <p>&copy; 2023 PACE. All rights reserved.</p>
+    </div>
+
+  </footer>
 </body>
 
 </html>
