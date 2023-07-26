@@ -1,3 +1,4 @@
+const numAttendeesInput = document.getElementById('numAttendees');
 const vegCountInput = document.getElementById('vegCount');
 const nonVegCountInput = document.getElementById('nonVegCount');
 
@@ -11,7 +12,7 @@ function incrVeg() {
 
     var vegBtn = document.getElementById('vegBtn');
     counterVeg.value++;
-    if (parseInt(counterVeg.value) >= 4) {
+    if (parseInt(counterVeg.value) >= parseInt(numAttendeesInput.value)) {
         vegBtn.setAttribute('disabled', 'true');
 
 
@@ -23,13 +24,14 @@ function incrVeg() {
 
 }
 function incrNonVeg() {
+
     document.getElementById('vegBtn').removeAttribute('disabled');
 
 
     var counterVeg = document.getElementById('nonVegCount');
     var vegBtn = document.getElementById('nonVegBtn');
     counterVeg.value++;
-    if (parseInt(counterVeg.value) >= 4) {
+    if (parseInt(counterVeg.value) >= parseInt(numAttendeesInput.value)) {
         vegBtn.setAttribute('disabled', 'true');
     } else { // Here's the correction
         vegBtn.removeAttribute('disabled');
@@ -42,7 +44,7 @@ vegCountInput.addEventListener('change', updateNonVegOptions);
 nonVegCountInput.addEventListener('change', updateVegOptions);
 
 function updateNonVegOptions() {
-    const maxNonVegAllowed = 4 - parseInt(vegCountInput.value);
+    const maxNonVegAllowed = parseInt(numAttendeesInput.value) - parseInt(vegCountInput.value);
     nonVegCountInput.max = maxNonVegAllowed;
     if (parseInt(nonVegCountInput.value) > maxNonVegAllowed) {
         nonVegCountInput.value = maxNonVegAllowed;
@@ -50,7 +52,7 @@ function updateNonVegOptions() {
 }
 
 function updateVegOptions() {
-    const maxVegAllowed = 4 - parseInt(nonVegCountInput.value);
+    const maxVegAllowed = parseInt(numAttendeesInput.value) - parseInt(nonVegCountInput.value);
     vegCountInput.max = maxVegAllowed;
     if (parseInt(vegCountInput.value) > maxVegAllowed) {
         vegCountInput.value = maxVegAllowed;
