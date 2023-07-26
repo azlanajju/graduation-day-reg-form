@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="logo">
+    <img  src="./pace-logo.png" alt="">
+</div>    <h1>PACE GRADUATION DAY-2023</h1>
+    <hr>
+    <h2>CSE</h2>
+    <hr>
+    <h3>REGISTRATION FORM</h3>
+
+    <form id="teamForm">
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+
+        <label for="name">NAME (As in Marks Card):</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+        <label for="usn">USN:</label>
+        <input type="text" id="usn" name="usn" required placeholder="Enter your USN">
+
+        <label for="mobile">Mobile Number (WhatsApp):</label>
+        <input type="tel" id="mobile" name="mobile" required placeholder="Enter your mobile number">
+
+        <label for="address">Address for Communication:</label>
+        <textarea id="address" name="address" rows="4" required placeholder="Enter your address"></textarea>
+
+        <label for="employer">Current Employer (Name & Address of the Company) (If not employed, type : NA):</label>
+        <input type="text" id="employer" name="employer" required placeholder="Enter your current employer">
+
+        <label for="designation">Designation? (Type NA if not applicable):</label>
+        <input type="text" id="designation" name="designation" required placeholder="Enter your designation">
+
+        <label for="graduationDay">Whether attending Graduation day?</label>
+        <select id="graduationDay" name="graduationDay" required>
+            <option value="">Select an option</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="numAttendees">If attending, mention how many will attend along with you:</label>
+        <select id="numAttendees" name="numAttendees" required>
+            <option value="">Select the number of attendees</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <label for="familyMembers">Number of accompanying family members (Max 4):</label>
+        <input type="number" id="familyMembers" name="familyMembers" min="0" max="4" required
+            placeholder="Enter the number of family members">
+
+        <label for="vegCount">Number of Veg & Non-veg:</label>
+        <div class="food_row">
+            <div>
+                <input placeholder="Veg" type="number" id="vegCount" name="vegCount" min="0" max="4" disabled>
+                <button id="vegBtn" type="button" onclick="incrVeg()">+ Veg</button>
+            </div>
+            <div>
+                <input placeholder="Non-Veg" type="number" id="nonVegCount" name="nonVegCount" min="0" max="5" disabled>
+                <button type="button" id="nonVegBtn" onclick="incrNonVeg()">+ Non-Veg</button>
+            </div>
+        </div>
+
+        <div class="submit">
+            <input type="submit" value="Register">
+        </div>
+        <hr>
+
+        <label class="note" for="cautionDeposit"><strong style="border-bottom: 2px solid black;">Note:</strong><br>
+            <ul class="note">
+                <li>Graduates are requested to register by paying Rs. 650/- (Registration fees) through online mode as prescribed by department coordinators on or before 8 August 2023. You can be accompanied by two(2) family members.</li>
+                <li>If you are accompanied by more than two (2) members (maximum 4 - including children above 3 years), pay an amount of Rs. 150/- per head along with the registration fee.</li>
+                <li>Entry pass will be issued accordingly.</li>
+                <li>On the day of the graduation ceremony, Rs. 1000/- caution deposit for the gown will be collected and returned after the ceremony.</li>
+            </ul>
+    
+        </label>
+    </form>
+<script src="./main.js"></script>
+
+
+
+</body>
+
+</html>
