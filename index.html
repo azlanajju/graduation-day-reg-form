@@ -23,65 +23,79 @@
   <h3>REGISTRATION FORM</h3>
   <form id="teamForm" name="contact-form" method="POST">
 
-
     <label for="email">Email ID:</label>
-    <input type="email" id="email" name="Email" required>
-
+    <input type="email" id="email" name="Email" required placeholder="Enter your email address">
+  
     <label for="name">NAME (As in Marks Card):</label>
-    <input type="text" id="name" name="Name" required>
-
+    <input type="text" id="name" name="Name" required placeholder="Enter your full name">
+  
     <label for="usn">USN:</label>
-    <input type="text" id="usn" name="USN" required>
-
+    <input type="text" id="usn" name="USN" required placeholder="Enter your university serial number (USN)">
+  
     <label for="mobile">Mobile Number (WhatsApp):</label>
-    <input type="tel" id="mobile" name="Mobile" required>
-
+    <input type="tel" id="mobile" name="Mobile" required placeholder="Enter your mobile number">
+  
     <label for="address">Address for Communication:</label>
-    <textarea id="address" name="Address" rows="4" required></textarea>
-
+    <textarea id="address" name="Address" rows="4" required placeholder="Enter your communication address"></textarea>
+  
     <label for="employer">Current Employer (Name & Address of the Company) (If not employed, type : NA):</label>
-    <input type="text" id="employer" name="Employer" required>
-
+    <input type="text" id="employer" name="Employer" required placeholder="Enter your current employer's name and address, or 'NA' if not employed">
+  
     <label for="designation">Designation? (Type NA if not applicable):</label>
-    <input type="text" id="designation" name="Designation" required>
-
+    <input type="text" id="designation" name="Designation" required placeholder="Enter your designation or 'NA' if not applicable">
+  
     <label for="graduationDay">Whether attending Graduation day?</label>
     <select id="graduationDay" name="GraduationDay" required>
-      <option value="">Select an option</option>
+      <option value="" disabled selected>Select an option</option>
       <option value="Yes">Yes</option>
       <option value="No">No</option>
     </select>
-
+  
     <label for="numAttendees">If attending, mention how many will attend along with you:</label>
     <select id="numAttendees" name="NumAttendees" required>
-      <option value="">Select the number of attendees</option>
+      <option value="" disabled selected>Select the number of attendees</option>
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
     </select>
-
-
+  
     <label for="vegCount">Number of Veg & Non-veg:</label>
     <div class="food_row">
       <div>
         <p class="numberFields" id="vegCoutField">0</p>
-        <input placeholder="Veg" type="hidden" id="vegCount" name="VegCount" min="0" max="4" >
+        <input placeholder="Veg" type="hidden" id="vegCount" value="0" name="VegCount" min="0" max="5">
         <button id="vegBtn" type="button" onclick="incrVeg()">+ Veg</button>
       </div>
       <div>
         <p class="numberFields" id="nonVegCoutField">0</p>
-        <input placeholder="Non-Veg" type="hidden" id="nonVegCount" name="NonVegCount" min="0" max="5" >
+        <input placeholder="Non-Veg" type="hidden" id="nonVegCount" value="0" name="NonVegCount" min="0" max="5">
         <button type="button" id="nonVegBtn" onclick="incrNonVeg()">+ Non-Veg</button>
       </div>
     </div>
+    <br>
+    <br>
+  
+    <div class="payment">
+      <img height="200px" src="./ankita.qr.jpeg" alt="">
+      <!-- HTML -->
+      <div class="upi">
+        <textarea id="textArea" name="" cols="30" rows="1" placeholder="Enter your UPI ID">ankita.bekal-2@okaxis</textarea>
+        <button type="button" id="copyBtn" onclick="copyText('textArea')">Copy</button>
+      </div>
+    </div>
+  
+    <label >Payment Proof</label>
+    <input type="text"  placeholder="Transaction ID" name="TransactionID" required>
+    <hr>
+  
     <div class="submit">
       <input type="submit" value="Register">
     </div>
     <hr>
-
-    <label class="note" for="cautionDeposit"><strong style="border-bottom: 2px solid black;">Note:</strong><br>
+  
+    <label class="note"><strong style="border-bottom: 2px solid black;">Note:</strong><br>
       <ul class="note">
         <li>Graduates are requested to register by paying Rs. 650/- (Registration fees) through online mode as
           prescribed by department coordinators on or before 8 August 2023. You can be accompanied by two(2)
@@ -92,12 +106,20 @@
         <li>On the day of the graduation ceremony, Rs. 1000/- caution deposit for the gown will be collected and
           returned after the ceremony.</li>
       </ul>
-
     </label>
   </form>
+  
 
   
-  <script src="./main.js">
+  <script src="./main.js">  </script>
+  <script>
+// JavaScript
+function copyText(elementId) {
+  var copyText = document.getElementById(elementId);
+  copyText.select();
+  document.execCommand('copy'); // Corrected the copy command
+  alert('Text copied to clipboard!');
+}
 
   </script>
   <script>
